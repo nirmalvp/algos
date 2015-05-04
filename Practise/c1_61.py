@@ -7,9 +7,7 @@ def findNextNumber(n):
 	checkedNumbers = [0] # Hack to get powerofTen+0 as a member of the list using map 
 	count = 0
 	while True:
-		print numbersMadeOfZeroAndOne
 		for number in numbersMadeOfZeroAndOne:
-			count +=1
 			if number % n == 0:
 				return number / n
 		checkedNumbers.extend(numbersMadeOfZeroAndOne)
