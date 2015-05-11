@@ -1,0 +1,37 @@
+<html><head>
+<title>c1_80.py</title>
+<meta name="Generator" content="htmlizer/[twisted, version 14.0.2]" />
+<link rel="alternate" href="c1_80.py" type="text/x-python" />
+
+</head>
+<body>
+<pre><span class="py-src-comment">#80) Given an array of non-negative integers, you are initially positioned at the first index of the array.   [LeetCode]</span>
+<span class="py-src-comment">#    Each element in the array represents your maximum jump length at that position.</span>
+<span class="py-src-comment">#        Determine if you are able to reach the last index.</span>
+<span class="py-src-comment">#        For example:    A = [2,3,1,1,4], return true. A = [3,2,1,0,4], return false.</span>
+
+<span class="py-src-keyword">def</span> <span class="py-src-identifier">isPathExisting</span>(<span class="py-src-parameter">array</span>,<span class="py-src-parameter">index</span>,<span class="py-src-parameter">zeroIndex</span>):
+	<span class="py-src-variable">jumpLength</span> = <span class="py-src-variable">array</span>[<span class="py-src-variable">index</span>]
+ <span class="py-src-keyword">for</span>  <span class="py-src-variable">length</span> <span class="py-src-keyword">in</span> <span class="py-src-variable">range</span>(<span class="py-src-number">1</span>,<span class="py-src-variable">jumpLength</span>+<span class="py-src-number">1</span>):
+		<span class="py-src-keyword">if</span> <span class="py-src-variable">index</span> + <span class="py-src-variable">length</span> &gt; <span class="py-src-variable">zeroIndex</span> :
+			<span class="py-src-keyword">return</span> <span class="py-src-variable">True</span>
+  <span class="py-src-keyword">if</span> <span class="py-src-variable">index</span>+<span class="py-src-variable">length</span> &lt; <span class="py-src-variable">len</span>(<span class="py-src-variable">array</span>) :
+			<span class="py-src-keyword">if</span> <span class="py-src-variable">isPathExisting</span>(<span class="py-src-variable">array</span>,<span class="py-src-variable">index</span>+<span class="py-src-variable">length</span>,<span class="py-src-variable">zeroIndex</span>):
+				<span class="py-src-keyword">return</span> <span class="py-src-variable">True</span>
+ <span class="py-src-keyword">return</span> <span class="py-src-variable">False</span>
+<span class="py-src-keyword">def</span> <span class="py-src-identifier">findIndexOfLastZero</span>(<span class="py-src-parameter">array</span>):
+	<span class="py-src-variable">index</span> =-<span class="py-src-number">1</span>
+ <span class="py-src-keyword">for</span> <span class="py-src-variable">pos</span>,<span class="py-src-variable">number</span> <span class="py-src-keyword">in</span> <span class="py-src-variable">enumerate</span>(<span class="py-src-variable">array</span>):
+		<span class="py-src-keyword">if</span> <span class="py-src-variable">number</span> == <span class="py-src-number">0</span>:
+			<span class="py-src-variable">index</span> = <span class="py-src-variable">pos</span>
+ <span class="py-src-keyword">return</span> <span class="py-src-variable">index</span>
+<span class="py-src-keyword">def</span> <span class="py-src-identifier">main</span>():
+	<span class="py-src-variable">array</span> = <span class="py-src-variable">map</span>(<span class="py-src-variable">int</span>, <span class="py-src-variable">raw_input</span>(<span class="py-src-string">"Enter the array"</span>))
+ <span class="py-src-variable">zeroIndex</span> = <span class="py-src-variable">findIndexOfLastZero</span>(<span class="py-src-variable">array</span>)
+ <span class="py-src-keyword">if</span> <span class="py-src-variable">zeroIndex</span> == -<span class="py-src-number">1</span>:
+		<span class="py-src-keyword">print</span> <span class="py-src-variable">True</span>
+ <span class="py-src-keyword">else</span>:
+ <span class="py-src-keyword">print</span> <span class="py-src-variable">isPathExisting</span>(<span class="py-src-variable">array</span>,<span class="py-src-number">0</span>,<span class="py-src-variable">zeroIndex</span>)
+<span class="py-src-variable">main</span>()
+</pre>
+</body>
