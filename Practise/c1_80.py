@@ -4,13 +4,12 @@
 #        For example:    A = [2,3,1,1,4], return true. A = [3,2,1,0,4], return false.
 
 def isPathExisting(array,index,zeroIndex):
+	if index > zeroIndex :
+		return True
 	jumpLength = array[index]
 	for  length in range(1,jumpLength+1):
-		if index + length > zeroIndex :
+		if index+length < len(array) and isPathExisting(array,index+length,zeroIndex):
 			return True
-		if index+length < len(array) :
-			if isPathExisting(array,index+length,zeroIndex):
-				return True
 	return False
 def findIndexOfLastZero(array):
 	index =-1
