@@ -20,6 +20,9 @@ def findGreatestRange(array):
 			j = j-1
 		if j < 0:
 			break
+		if array[i] == array[j]: #We want to preserve the value of j for the next iteration of i, but it 
+		#it shouldnt be used in the maxdist calculation of current iteration
+			continue
 		maxDist = max(maxDist, j - i + 1 )
 	return maxDist
 def main():
