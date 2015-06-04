@@ -3,6 +3,7 @@ from c3_linkedlist import LinkedList
 from c5_01 import Node
 import c5_10
 first = None
+
 def createBalancedBST(start,end):
 	#Bottom-up recursion : Find the middle of the linkedlist. That is the parent index.
 	#From every parent, first build the left subtree. This ensures that we can use the elements in
@@ -19,6 +20,7 @@ def createBalancedBST(start,end):
 	parent.left = leftChild
 	parent.right = rightChild
 	return parent
+
 def main():
 	linkedlist = LinkedList()
 	length = 0
